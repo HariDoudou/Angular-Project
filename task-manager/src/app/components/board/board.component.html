@@ -1,1 +1,13 @@
-<p>board works!</p>
+<div class="board-container">
+  <h1>Mes tâches</h1>
+
+  <div class="board">
+    <ng-container *ngIf="lists$ | async as lists">
+      <app-task-list
+        *ngFor="let list of lists"
+        [list]="list"
+        (taskDropped)="onTaskDrop($event, list.id)">
+      </app-task-list>
+    </ng-container>
+  </div>
+</div>

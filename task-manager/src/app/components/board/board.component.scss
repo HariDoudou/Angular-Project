@@ -1,0 +1,18 @@
+.board-container {
+  padding: 16px;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+}
+
+.board {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}

@@ -1,1 +1,14 @@
-<p>task-item works!</p>
+<div class="task-item" cdkDrag>
+    <mat-card>
+      <mat-card-content>
+        <h3>{{ task.title }}</h3>
+        <p *ngIf="task.description">{{ task.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button color="warn" (click)="deleteTask()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+      <div class="drag-placeholder" *cdkDragPlaceholder></div>
+    </mat-card>
+  </div>

@@ -1,1 +1,22 @@
-<p>task-form works!</p>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Titre</mat-label>
+    <input matInput formControlName="title" placeholder="Entrez le titre">
+    <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+      Le titre est requis
+    </mat-error>
+    <mat-error *ngIf="taskForm.get('title')?.hasError('minlength')">
+      Le titre doit contenir au moins 3 caractères
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Entrez une description (optionnel)"></textarea>
+  </mat-form-field>
+
+  <div class="form-actions">
+    <button mat-button type="button" (click)="onCancel()">Annuler</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">Ajouter</button>
+  </div>
+</form>
